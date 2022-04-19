@@ -23,13 +23,17 @@ export default function Home() {
 
         <div className={styles.grid}>
           <Link href="/" className={styles.card}>
-            <h2>Register another! &rarr;</h2>
-            <p>Register another appliance with a project</p>
+            <a>
+              <h2>Register another! &rarr;</h2>
+              <p>Register another appliance with a project</p>
+            </a>
           </Link>
 
           <Link href="/" className={styles.card}>
-            <h2>Support &rarr;</h2>
-            <p>Contact Contivo support for help with operations</p>
+            <a>
+              <h2>Support &rarr;</h2>
+              <p>Contact Contivo support for help with operations</p>
+            </a>
           </Link>
         </div>
       </main>
