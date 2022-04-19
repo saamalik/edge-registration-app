@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
@@ -21,15 +22,15 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="/" className={styles.card}>
+          <Link href="/" className={styles.card}>
             <h2>Register another! &rarr;</h2>
             <p>Register another appliance with a project</p>
-          </a>
+          </Link>
 
-          <a href="/" className={styles.card}>
+          <Link href="/" className={styles.card}>
             <h2>Support &rarr;</h2>
             <p>Contact Contivo support for help with operations</p>
-          </a>
+          </Link>
         </div>
       </main>
 
