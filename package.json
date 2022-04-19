@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.21.1",
+    "https-proxy-agent": "^5.0.0",
+    "js-yaml": "^4.0.0",
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0"
