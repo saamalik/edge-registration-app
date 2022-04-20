@@ -39,11 +39,6 @@ export default async function handler(req, res) {
     return res.json({ data: 'appliance or crmProject name not found' })
   }
 
-  // const credentials = {
-  //   host: core.getInput('host'),
-  //   username: core.getInput('username', {required : true}),
-  //   password: core.getInput('password', {required : true}),
-  // }
   const c = new Client(scApi, scUser, scPassword);
   // const kubeconfig = await getKubeconfigFromSpectroCloud(c, "Default", "vmware-prod-2");
   const projectUid = await c.getProjectUID("Default");
@@ -56,6 +51,9 @@ export default async function handler(req, res) {
   const clusterData = {
     metadata: {
       name: `${appliance}`,
+      labels: {
+        imported: "false",
+      }
     },
     spec: {}
   }
