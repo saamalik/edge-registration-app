@@ -10,6 +10,10 @@ npm run dev
 yarn dev
 ```
 
+```
+curl --data 'appliance=edge-12345' --data 'crmProject=ab' http://localhost:3000/api/form
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.

@@ -1,7 +1,33 @@
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 export default function Form() {
+
+  useEffect( () => {
+    async function nfc() {
+      try {
+        const ndef = new NDEFReader();
+        await ndef.scan();
+        console.log("> Scan started");
+
+        ndef.addEventListener("readingerror", () => {
+          console.log("Argh! Cannot read data from the NFC tag. Try another one?");
+        });
+
+        ndef.addEventListener("reading", ({ message, serialNumber }) => {
+          console.log(`> Serial Number: ${serialNumber}`);
+          console.log(`> Records: (${message.records.length})`);
+        });
+      } catch (error) {
+        console.log("Argh! " + error);
+      }
+
+    }
+    nfc();
+
+
+  });
   return (
     <div className="container">
       <h1 className={styles.title}>
@@ -19,9 +45,11 @@ export default function Form() {
         <label htmlFor="appliance">Appliance ID</label>
         <input type="text" id="appliance" name="appliance" required />
 
-        <label htmlFor="last">CRM Project</label>
-        <select id="project" name="project" required>
-          <option value="abc">Abc</option>
+        <label htmlFor="crmProject">CRM Project</label>
+        <select id="crmProject" name="crmProject" required>
+          <option value="61a904fa66f466f67dd86cf3">Cust1-Infinity</option>
+          <option value="61a904fa66f466f67dd86cf3">Cust1-Beyond</option>
+          <option value="61a904fa66f466f67dd86cf3">Cust1-Happy</option>
         </select>
 
         <button type="submit">Submit</button>

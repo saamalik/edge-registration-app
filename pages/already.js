@@ -14,11 +14,11 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-           Registered <span className={styles.blue}>appliance</span> successfully!
+           Appliance already exists
         </h1>
 
         <p className={styles.description}>
-          The appliance is registered successfully.
+          Appliance already was registered previously!
         </p>
 
         <div className={styles.grid}>

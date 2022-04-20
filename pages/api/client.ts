@@ -42,7 +42,7 @@ export default class Client {
   }
 
   private async getAuthToken(httpsProxyAgent: any) {
-    const url = `https://${this.host}/v1alpha1/auth/authenticate`;
+    const url = `https://${this.host}/v1/auth/authenticate`;
     return axios.post(url, {
       emailId: this.username,
       password: this.password,
@@ -89,7 +89,7 @@ export default class Client {
   }
   async getProjectUID(projectName: string) {
     const c = await this.getClient();
-    return c.get(`/v1alpha1/projects?filters=metadata.name=${projectName}`)
+    return c.get(`/v1/projects?filters=metadata.name=${projectName}`)
       .then( response => response.data )
       .then(data => {
         if (!data || !data.items?.length) {
@@ -102,7 +102,7 @@ export default class Client {
 
   async getClusterUID(projectUID: string, clusterName: string) {
     const c = await this.getClient();
-    return c.get(`/v1alpha1/spectroclusters?filters=metadata.name=${clusterName}ANDmetadata.isDeleted=false&ProjectUid=${projectUID}`)
+    return c.get(`/v1/spectroclusters?filters=metadata.name=${clusterName}ANDmetadata.isDeleted=false&ProjectUid=${projectUID}`)
       .then( response => response.data )
       .then(data => {
         if (!data || !data.items?.length) {
@@ -115,7 +115,7 @@ export default class Client {
 
   async getClusterProfileUID(projectUID: string, clusterProfileName: string) {
     const c = await this.getClient();
-    return c.get(`/v1alpha1/clusterprofiles?filters=metadata.name=${clusterProfileName}&ProjectUid=${projectUID}`)
+    return c.get(`/v1/clusterprofiles?filters=metadata.name=${clusterProfileName}&ProjectUid=${projectUID}`)
       .then( response => response.data )
       .then(data => {
         if (!data || !data.items?.length) {
@@ -128,7 +128,7 @@ export default class Client {
 
   async getCloudAccountUID(projectUID: string, cloudType: string, cloudAccountName: string) {
     const c = await this.getClient();
-    return c.get(`/v1alpha1/cloudaccounts/${cloudType}/?filters=metadata.name=${cloudAccountName}&ProjectUid=${projectUID}`)
+    return c.get(`/v1/cloudaccounts/${cloudType}/?filters=metadata.name=${cloudAccountName}&ProjectUid=${projectUID}`)
       .then( response => response.data )
       .then(data => {
         if (!data || !data.items?.length) {
@@ -141,7 +141,13 @@ export default class Client {
 
   async getCluster(projectUID: string, clusterUID: string) {
     const c = await this.getClient();
-    return c.get(`/v1alpha1/spectroclusters/${clusterUID}/?ProjectUid=${projectUID}`)
+    return c.get(`/v1/spectroclusters/${clusterUID}/?ProjectUid=${projectUID}`)
+      .then( response => response.data );
+  }
+
+  async getEdgeAppliance(projectUID: string, edgeHostUID: string) {
+    const c = await this.getClient();
+    return c.get(`/v1/edgehosts/${edgeHostUID}/?ProjectUid=${projectUID}`)
       .then( response => response.data );
   }
 
@@ -149,7 +155,7 @@ export default class Client {
     const c = await this.getClient();
     console.log(projectUID, clusterUID);
 
-    return c.get(`/v1alpha1/spectroclusters/${clusterUID}/assets/kubeconfig?ProjectUid=${projectUID}`, {responseType: 'text', headers: {'Accept' : '*/*'}})
+    return c.get(`/v1/spectroclusters/${clusterUID}/assets/kubeconfig?ProjectUid=${projectUID}`, {responseType: 'text', headers: {'Accept' : '*/*'}})
       .then( response => {
         return response.data
       });
@@ -159,9 +165,37 @@ export default class Client {
     const c = await this.getClient();
     console.log("Creating cluster");
 
-    return c.post(`/v1alpha1/spectroclusters/${cloudType}?ProjectUid=${projectUID}`, data)
+    return c.post(`/v1/spectroclusters/${cloudType}?ProjectUid=${projectUID}`, data)
       .then( response => {
         return response.data.uid;
+      });
+  }
+
+  async importCluster(projectUID: string, cloudType: string, data: any) {
+    const c = await this.getClient();
+    console.log("Import cluster");
+
+    return c.post(`/v1/spectroclusters/${cloudType}/import?ProjectUid=${projectUID}`, data)
+      .then( response => {
+        return response.data.uid;
+      });
+  }
+
+  async createEdgeAppliance(projectUID: string, data: any) {
+    const c = await this.getClient();
+
+    return c.post(`/v1/edgehosts?ProjectUid=${projectUID}`, data)
+      .then( response => {
+        return response.data.uid;
+      });
+  }
+
+  async attachProfiles(projectUID: string, clusterUID: string, data: any) {
+    const c = await this.getClient();
+
+    return c.put(`/v1/spectroclusters/${clusterUID}/profiles?ProjectUid=${projectUID}`, data)
+      .then( response => {
+        return response.data;
       });
   }
 
