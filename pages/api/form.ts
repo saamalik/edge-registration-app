@@ -50,7 +50,7 @@ export default async function handler(req, res) {
   const alreadyExists = await doesEdgeApplianceExist(c, projectUid, appliance);
   if (alreadyExists) {
     console.log("It already exists! - ");
-    return res.redirect(307, '/already')
+    return res.redirect(303, '/already')
   }
 
   const clusterData = {
@@ -84,7 +84,7 @@ export default async function handler(req, res) {
   const applianceUid = await c.createEdgeAppliance(projectUid, data);
   console.log("Appliance UID:", applianceUid);
 
-  res.redirect(307, '/registered')
+  res.redirect(303, '/registered')
 
   // Both of these are required.
   // if (!body.first || !body.last) {
