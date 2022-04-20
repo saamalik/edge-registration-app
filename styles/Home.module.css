@@ -77,7 +77,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
   max-width: 800px;
   margin-top: 3rem;
 }
@@ -117,9 +117,14 @@
   margin-left: 0.5rem;
 }
 
-@media (max-width: 600px) {
+.scan {
+  background-color: #f1f1f1;
+  /* border: 1px solid grey; */
+}
+
+/*@media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
   }
-}
+}*/

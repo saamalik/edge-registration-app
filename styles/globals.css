@@ -37,6 +37,7 @@ select, input {
   border-radius: 0.25rem;
   box-sizing: border-box;
   margin-bottom: 2.5rem;
+  background-color: white;
 }
 
 select:focus, input:focus {
@@ -59,6 +60,12 @@ button {
 
 button:hover {
   background-color: #0060e9;
+}
+
+button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
 
 .container {
