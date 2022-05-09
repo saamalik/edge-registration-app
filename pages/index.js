@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+import { useRouter } from 'next/router';
 
-export default function Form() {
-
+export default function Form({applianceId}) {
   const appliance = useRef(null);
   const [isDisabled, setDisabled] = useState(false);
-
+  const [applianceValue, setApplianceValue] = useState(applianceId || '');
   async function fun() {
     setDisabled(true);
 
@@ -78,7 +78,7 @@ export default function Form() {
       <form action="/api/form" method="post">
             <label htmlFor="appliance">Appliance ID</label>
           <div style={{ display: 'flex' }}>
-            <input style={{ flexGrow : 1, }} type="text" ref={appliance} id="appliance" name="appliance" required />
+            <input value={applianceValue} onChange={(ev) => setApplianceValue(ev.target.value)} style={{ flexGrow : 1, }} type="text" ref={appliance} id="appliance" name="appliance" required />
             <button style={{ width: 'unset', paddingLeft: 10, paddingRight: 10 }} className={styles.scan} disabled={isDisabled} onClick={fun}>🧭</button>
           </div>
         <label htmlFor="crmProject">CRM Project</label>
@@ -92,4 +92,12 @@ export default function Form() {
       </form>
     </div>
   )
+}
+
+export function getServerSideProps({query}) {
+  return {
+    props: {
+      applianceId: query["appliance-id"]
+    }
+  }
 }
