@@ -2,10 +2,13 @@ import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 
 export default function Form({applianceId}) {
   const appliance = useRef(null);
   const [isDisabled, setDisabled] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [applianceValue, setApplianceValue] = useState(applianceId || '');
   async function fun() {
     setDisabled(true);
@@ -75,7 +78,7 @@ export default function Form({applianceId}) {
         {/* <code className={styles.code}>pages/no-js-from.js</code> */}
       </p>
 
-      <form action="/api/form" method="post">
+      <form action="/api/form" method="post" onSubmit={() => setIsSubmitting(true)}>
             <label htmlFor="appliance">Appliance ID</label>
           <div style={{ display: 'flex' }}>
             <input value={applianceValue} onChange={(ev) => setApplianceValue(ev.target.value)} style={{ flexGrow : 1, }} type="text" ref={appliance} id="appliance" name="appliance" required />
@@ -88,7 +91,10 @@ export default function Form({applianceId}) {
           <option value="edge-lasvegas;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">Las Vegas, NV - Party Rd</option>
         </select>
 
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={isSubmitting}>
+           Submit
+          {isSubmitting ? <FontAwesomeIcon icon={faCircleNotch} spin /> : null}
+        </button>
       </form>
     </div>
   )
