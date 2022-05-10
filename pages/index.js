@@ -81,11 +81,11 @@ export default function Form({applianceId}) {
             <input value={applianceValue} onChange={(ev) => setApplianceValue(ev.target.value)} style={{ flexGrow : 1, }} type="text" ref={appliance} id="appliance" name="appliance" required />
             <button style={{ width: 'unset', paddingLeft: 10, paddingRight: 10 }} className={styles.scan} disabled={isDisabled} onClick={fun}>🧭</button>
           </div>
-        <label htmlFor="crmProject">CRM Project</label>
+        <label htmlFor="crmProject">Store</label>
         <select id="crmProject" name="crmProject" required>
-          <option value="62602dbb50d26516d67bc84a,61a904fa66f466f67dd86cf3">Cust1-Infinity</option>
-          <option value="62602dbb50d26516d67bc84a,61a904fa66f466f67dd86cf3">Cust1-Beyond</option>
-          <option value="62602dbb50d26516d67bc84a,61a904fa66f466f67dd86cf3">Cust1-Happy</option>
+          <option value="edge-hollywood;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">Hollywood, Ca - Harry St</option>
+          <option value="edge-sanjose;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">San Jose, Ca - Hopper St</option>
+          <option value="edge-lasvegas;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">Las Vegas, NV - Party Rd</option>
         </select>
 
         <button type="submit">Submit</button>
@@ -97,7 +97,7 @@ export default function Form({applianceId}) {
 export function getServerSideProps({query}) {
   return {
     props: {
-      applianceId: query["appliance-id"]
+      applianceId: query["appliance-id"] || ''
     }
   }
 }

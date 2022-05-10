@@ -23,11 +23,39 @@ export async function doesEdgeApplianceExist(c: Client, projectUid: string, edge
   }
 }
 
+export async function createCluster(c: Client, projectUid: string, clusterName: string) {
+  const clusterData = {
+    metadata: {
+      name: clusterName,
+      labels: {
+        imported: "false",
+      }
+    },
+    spec: {}
+  }
+
+  const clusterUid = await c.importCluster(projectUid, 'generic', clusterData);
+  return clusterUid;
+}
+
+export async function getOrCreateCluster(c: Client, projectUid: string, clusterName: string) {
+  try {
+    const clusterUid = await c.getClusterUID(projectUid, clusterName);
+    console.log("Found existing cluster", clusterUid, clusterName);
+    return clusterUid;
+  } catch(e) {
+    console.log("Creating new cluster", clusterName);
+    const clusterUid = await createCluster(c, projectUid, clusterName);
+    console.log("Created new cluster", clusterUid, clusterName);
+    return clusterUid;
+  }
+}
+
 export default async function handler(req, res) {
   const body = req.body
   console.log('body: ', body)
   const appliance = body.appliance;
-  const crmProject = body.crmProject;
+  const [clusterName,crmProject] = body.store.split(";");
 
   const scApi = process.env.SC_API
   const scUser = process.env.SC_USER
@@ -35,7 +63,7 @@ export default async function handler(req, res) {
 
   console.log("New request: ", appliance, crmProject)
 
-  if (!appliance || !crmProject) {
+  if (!appliance || !clusterName || !crmProject) {
     return res.json({ data: 'appliance or crmProject name not found' })
   }
 
@@ -48,17 +76,7 @@ export default async function handler(req, res) {
     return res.redirect(303, '/already')
   }
 
-  const clusterData = {
-    metadata: {
-      name: `${appliance}`,
-      labels: {
-        imported: "false",
-      }
-    },
-    spec: {}
-  }
-
-  const clusterUid = await c.importCluster(projectUid, 'generic', clusterData);
+  const clusterUid = await getOrCreateCluster(c, projectUid, clusterName);
   console.log("Cluster UID:", clusterUid);
 
   const attachProfile = {
