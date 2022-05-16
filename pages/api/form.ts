@@ -93,6 +93,7 @@ export default async function handler(req, res) {
       uid: appliance,
       labels: {
         cluster: clusterUid,
+        name: clusterName,
       }
     },
   }
