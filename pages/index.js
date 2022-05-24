@@ -86,16 +86,17 @@ export default function Form({applianceId}) {
           </div>
         <label htmlFor="crmProject">Store</label>
         <select id="store" name="store" required>
-          <option value="edge-hollywood;62753e05f245ae150c1a3c65,62753eadf245ae15ae76a4cb">Hollywood, Ca - Harry St</option>
-          <option value="edge-pittsburgh;62753e05f245ae150c1a3c65,62753eadf245ae15ae76a4cb">Pittsburgh, PA - Penguin Stt</option>
+          <option value="edge-pittsburgh;628cd6aa7c90b587a5da6cea,628cd6aa7c90b587a3494bd8">Pittsburgh, PA - Penguin Stt</option>
+          <option value="edge-hollywood;628cd6aa7c90b587a5da6cea,628cd6aa7c90b587a3494bd8">Hollywood, Ca - Harry St</option>
           <option value="edge-dallas;62753e05f245ae150c1a3c65,62753eadf245ae15ae76a4cb">Dallas, TX - BBQ St</option>
-          <option value="edge-denver;62753e05f245ae150c1a3c65,62753eadf245ae15ae76a4cb">Denver, CO - Snow St</option>
-          <option value="edge-newyork;62753e05f245ae150c1a3c65,62753eadf245ae15ae76a4cb">New York, NW - Wall St</option>
+          <option value="edge-denver;628cd6aa7c90b587a5da6cea,628cd6aa7c90b587a3494bd8">Denver, CO - Snow St</option>
+          <option value="edge-newyork;628cd6aa7c90b587a5da6cea,628cd6aa7c90b587a3494bd8">New York, NW - Wall St</option>
           <option value="edge-sanjose;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">San Jose, Ca - Hopper St</option>
           <option value="edge-lasvegas;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">Las Vegas, NV - Party Rd</option>
           <option value="edge-whitefish;627e94767c90aaab2cfd97a3,627e94b17c90aaab5a71a8b5">Whitefish, MT - Parkway Dr</option>
           <option value="edge-phoenix;628bdec37c90b4bf16481eb1,628be14c7c90b4c1110e633e">Phoenix, AZ - Suns Ave</option>
           <option value="edge-cambridge;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">Cambridge, MA - Main St</option>
+          <option value="edge-miami;628cd6aa7c90b587a5da6cea,628cd6aa7c90b587a3494bd8">Miami, FL - Beach St</option>
         </select>
 
         <button type="submit" disabled={isSubmitting}>
