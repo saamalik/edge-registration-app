@@ -95,6 +95,7 @@ export default function Form({applianceId}) {
           <option value="edge-lasvegas;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">Las Vegas, NV - Party Rd</option>
           <option value="edge-whitefish;627e94767c90aaab2cfd97a3,627e94b17c90aaab5a71a8b5">Whitefish, MT - Parkway Dr</option>
           <option value="edge-phoenix;628bdec37c90b4bf16481eb1,628be14c7c90b4c1110e633e">Phoenix, AZ - Suns Ave</option>
+          <option value="edge-cambridge;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">Cambridge, MA - Main St</option>
         </select>
 
         <button type="submit" disabled={isSubmitting}>
