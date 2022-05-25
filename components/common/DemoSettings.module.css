@@ -1,0 +1,15 @@
+.settingsBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.settingsBtn.withSettings {
+  transform: translateX(-300px);
+}
