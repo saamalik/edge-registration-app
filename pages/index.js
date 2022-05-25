@@ -51,6 +51,8 @@ export default function Form({ applianceId }) {
     }
   }
 
+  // https://github.com/vercel/next.js/discussions/35773#discussioncomment-2485078
+  // the hydration fails for the image from the localStorage
   const [isSSR, setIsSSR] = useState(true);
 
   useEffect(() => {
@@ -83,9 +85,9 @@ export default function Form({ applianceId }) {
   return (
     <div className={styles.container}>
       <div className={styles.logoWrap}>
-        {isSSR ? (
-          null
-        ) : <img className={styles.logo} src={logo} alt="demo logo" />}
+        {isSSR ? null : (
+          <img className={styles.logo} src={logo} alt="demo logo" />
+        )}
       </div>
       <h1 className={styles.title}>
         {name} <span className="accent">appliance</span> registration!

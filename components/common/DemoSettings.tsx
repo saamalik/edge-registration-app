@@ -11,7 +11,11 @@ export default function useDemoControls() {
 }
 
 function blobToDataUrl(blob) {
-  return new Promise(r => {let a=new FileReader(); a.onload=r; a.readAsDataURL(blob)}).then(e => e.target.result);
+  return new Promise(r => {
+    let reader = new FileReader();
+    reader.onload = (e) => r(e.target.result);
+    reader.readAsDataURL(blob)
+  });
 }
 
 export function DemoSettingsProvider({ children }: { children: React.ReactNode }) {
@@ -79,7 +83,7 @@ export function DemoSettingsProvider({ children }: { children: React.ReactNode }
   useEffect(() => {
     async function persistToCache() {
       const imgAsDataUri = await blobToDataUrl(await fetch(controls.logo).then(r => r.blob()));
-      lscache.set('demo-settings', { ...controls, logo: imgAsDataUri});
+      lscache.set('demo-settings', { ...controls, logo: imgAsDataUri });
     }
 
     persistToCache();
