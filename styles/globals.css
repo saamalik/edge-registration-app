@@ -4,6 +4,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: var(--textColor);
+  background-color: var(--backgroundColor);
 }
 
 a {
@@ -22,40 +24,16 @@ form {
   padding: 1rem;
 }
 
-label {
-  display: table;
-  width: 100%;
-  margin-bottom: 0.5rem;
-  color: #3b3b3b;
-}
-
-select, input {
-  display: table;
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  box-sizing: border-box;
-  margin-bottom: 2.5rem;
-  background-color: white;
-}
-
 select:focus, input:focus {
   outline: none;
   border-color: #0070f3;
 }
 
 button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
   padding: 0.5rem;
   border: none;
   border-radius: 0.25rem;
-  box-sizing: border-box;
-  margin-bottom: 2.5rem;
-  background-color: #0070f3;
+  background-color: var(--accentColor);
   color: #fff;
   cursor: pointer;
 }
@@ -65,7 +43,7 @@ button svg{
 }
 
 button:hover {
-  background-color: #0060e9;
+  background-color: var(--accentColor);
 }
 
 button:disabled {
@@ -74,12 +52,15 @@ button:disabled {
   color: #666666;
 }
 
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+
+#leva__root {
+  display: none;
+}
+
+#leva__root.show {
+  display: block;
+}
+
+.accent {
+  color: var(--accentColor);
 }

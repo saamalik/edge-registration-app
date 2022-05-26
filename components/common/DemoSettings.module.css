@@ -1,0 +1,28 @@
+.settingsBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.settingsBtn[data-secondary="true"] {
+  background-color: #fff;
+  color: var(--accentColor);
+}
+
+.settingsButtons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: all 0.1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.settingsButtons.withSettings {
+  transform: translateX(-300px);
+}
