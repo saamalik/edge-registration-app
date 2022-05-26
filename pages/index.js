@@ -3,8 +3,9 @@ import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+import { faCircleNotch, faCompass } from "@fortawesome/free-solid-svg-icons";
 import useDemoControls from "components/common/DemoSettings";
+import useSSR from "components/common/SSR";
 import Image from "next/image";
 
 export default function Form({ applianceId }) {
@@ -51,13 +52,7 @@ export default function Form({ applianceId }) {
     }
   }
 
-  // https://github.com/vercel/next.js/discussions/35773#discussioncomment-2485078
-  // the hydration fails for the image from the localStorage
-  const [isSSR, setIsSSR] = useState(true);
-
-  useEffect(() => {
-    setIsSSR(false);
-  }, []);
+  const isSSR = useSSR();
 
   // useEffect( () => {
   //   async function nfc() {
@@ -115,12 +110,11 @@ export default function Form({ applianceId }) {
             required
           />
           <button
-            style={{ width: "unset", paddingLeft: 10, paddingRight: 10 }}
             className={styles.scan}
             disabled={isDisabled}
             onClick={fun}
           >
-            🧭
+            <FontAwesomeIcon icon={faCompass} />
           </button>
         </div>
         <label htmlFor="crmProject">{selectionLabel}</label>
