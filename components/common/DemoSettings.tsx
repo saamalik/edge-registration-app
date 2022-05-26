@@ -14,6 +14,10 @@ export default function useDemoControls() {
 }
 
 const dataURItoBlob = function (dataURI) {
+  if (!dataURI) {
+    return new Blob([]);
+  }
+
   const bytes =
     dataURI.split(',')[0].indexOf('base64') >= 0
       ? atob(dataURI.split(',')[1])
@@ -67,7 +71,11 @@ function encodeObject(obj) {
 }
 
 function decodeObject(str) {
-  return JSON.parse(atob(str));
+  let settings = "{}";
+  try {
+    settings = atob(str)
+  } catch (e) {}
+  return JSON.parse(settings);
 }
 
 
