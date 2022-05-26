@@ -85,7 +85,7 @@ export default function Form({ applianceId }) {
         )}
       </div>
       <h1 className={styles.title}>
-        {name} <span className="accent">appliance</span> registration!
+      <span className="accent">{name}</span> appliance registration!
       </h1>
       <p className={styles.description}>
         Register the appliance with a CRM project
