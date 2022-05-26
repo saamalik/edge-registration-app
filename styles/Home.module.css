@@ -1,6 +1,6 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
+  padding: 50px 21px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -160,4 +160,11 @@
 .logo {
   width: 100%;
   max-height: 100px;
+}
+
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 3rem;
+  }
 }
