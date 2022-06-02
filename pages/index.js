@@ -119,22 +119,22 @@ export default function Form({ applianceId }) {
         </div>
         <label htmlFor="crmProject">{selectionLabel}</label>
         <select id="store" name="store" required>
-          <option value="edge-newyork;628ce30a7c90b5915b37a802,628ce30a7c90b591598ef64c">
+          <option value="edge-newyork;6297c9e4b21e6e26f2cac6bb,62984b20b21e6e4972f07726">
             New York, NW - Wall St
           </option>
-          <option value="edge-dallas;62753e05f245ae150c1a3c65,62753eadf245ae15ae76a4cb">
+          <option value="edge-dallas;6297c9e4b21e6e26f2cac6bb,62984b20b21e6e4972f07726">
             Dallas, TX - BBQ St
           </option>
-          <option value="edge-lasvegas;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">
+          <option value="edge-lasvegas;6297c9e4b21e6e26f2cac6bb,62984b20b21e6e4972f07726">
             Las Vegas, NV - Party Rd
           </option>
-          <option value="edge-whitefish;627e94767c90aaab2cfd97a3,627e94b17c90aaab5a71a8b5">
+          <option value="edge-whitefish;6297c9e4b21e6e26f2cac6bb,62984b20b21e6e4972f07726">
             Whitefish, MT - Parkway Dr
           </option>
-          <option value="edge-phoenix;628bdec37c90b4bf16481eb1,628be14c7c90b4c1110e633e">
+          <option value="edge-phoenix;6297c9e4b21e6e26f2cac6bb,62984b20b21e6e4972f07726">
             Phoenix, AZ - Suns Ave
           </option>
-          <option value="edge-cambridge;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">
+          <option value="edge-cambridge;6297c9e4b21e6e26f2cac6bb,62984b20b21e6e4972f07726">
             Cambridge, MA - Main St
           </option>
         </select>
