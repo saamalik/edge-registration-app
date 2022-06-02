@@ -119,26 +119,11 @@ export default function Form({ applianceId }) {
         </div>
         <label htmlFor="crmProject">{selectionLabel}</label>
         <select id="store" name="store" required>
-          <option value="edge-pittsburgh;628ce30a7c90b5915b37a802,628ce30a7c90b591598ef64c">
-            Pittsburgh, PA - Penguin St
-          </option>
-          <option value="edge-hollywood;628ce30a7c90b5915b37a802,628ce30a7c90b591598ef64c">
-            Hollywood, Ca - Harry St
-          </option>
-          <option value="edge-miami;628ce30a7c90b5915b37a802,628ce30a7c90b591598ef64c">
-            Miami, FL - Beach St
-          </option>
-          <option value="edge-denver;628ce30a7c90b5915b37a802,628ce30a7c90b591598ef64c">
-            Denver, CO - Snow St
-          </option>
           <option value="edge-newyork;628ce30a7c90b5915b37a802,628ce30a7c90b591598ef64c">
             New York, NW - Wall St
           </option>
           <option value="edge-dallas;62753e05f245ae150c1a3c65,62753eadf245ae15ae76a4cb">
             Dallas, TX - BBQ St
-          </option>
-          <option value="edge-sanjose;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">
-            San Jose, Ca - Hopper St
           </option>
           <option value="edge-lasvegas;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">
             Las Vegas, NV - Party Rd
