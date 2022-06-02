@@ -131,11 +131,11 @@ export default function Form({ applianceId }) {
           <option value="edge-whitefish;6297c9e4b21e6e26f2cac6bb,62984b20b21e6e4972f07726">
             Whitefish, MT - Parkway Dr
           </option>
-          <option value="edge-phoenix;6297c9e4b21e6e26f2cac6bb,62984b20b21e6e4972f07726">
+          <option value="edge-phoenix;629900a318c34b8e484bb6b8,629900be18c34b8e513c47e3">
             Phoenix, AZ - Suns Ave
           </option>
-          <option value="edge-cambridge;6297c9e4b21e6e26f2cac6bb,62984b20b21e6e4972f07726">
-            Cambridge, MA - Main St
+          <option value="edge-milwaukee;629900a318c34b8e484bb6b8,629900be18c34b8e513c47e3">
+            Milwaukee, WI - Tower Ave
           </option>
         </select>
 
