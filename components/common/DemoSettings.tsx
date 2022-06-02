@@ -186,3 +186,4 @@ export function DemoSettingsProvider({ children }: { children: React.ReactNode }
     </DemoSettingsContext.Provider>
   )
 }
+
