@@ -140,6 +140,9 @@ export default function Form({ applianceId }) {
           <option value="edge-dallas;62753e05f245ae150c1a3c65,62753eadf245ae15ae76a4cb">
             Dallas, TX - BBQ St
           </option>
+          <option value="edge-milwaukee;62a96c6f4575048ec4495496,62a97922457504988e543a7a">
+            Milwaukee, WI - Edge Stores
+          </option>
           <option value="edge-sanjose;627a4962f245b23834eb4766,61a904fa66f466f67dd86cf3">
             San Jose, Ca - Hopper St
           </option>
